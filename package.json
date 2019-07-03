@@ -2,12 +2,12 @@
   "name": "lim009-fe-md-links",
   "version": "1.0.0",
   "description": "[Markdown](https://es.wikipedia.org/wiki/Markdown) es un lenguaje de marcado\r ligero muy popular entre developers. Es usado en muchísimas plataformas que\r manejan texto plano (GitHub, foros, blogs, ...), y es muy común\r encontrar varios archivos en ese formato en cualquier tipo de repositorio\r (empezando por el tradicional `README.md`).",
-  "main": "index.js",
+  "main": "./lib/search-files/main.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "test",
+    "test": "jest --coverage",
     "build": "babel src -d lib"
   },
   "repository": {
@@ -23,13 +23,17 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@babel/plugin-transform-modules-commonjs": "^7.4.4",
-    "@babel/preset-env": "^7.4.5"
+    "@babel/preset-env": "^7.4.5",
+    "fetch-mock": "^7.3.3",
+    "jest": "^24.8.0"
   },
   "bin": {
     "md-links": "./lib/process/cli.js"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "chalk": "^2.4.2",
+    "marked": "^0.6.3",
     "node-fetch": "^2.6.0"
   }
 }

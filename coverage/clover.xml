@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1562120389108" clover="3.2.0">
+  <project timestamp="1562120389108" name="All files">
+    <metrics statements="41" coveredstatements="31" conditionals="6" coveredconditionals="2" methods="10" coveredmethods="5" elements="57" coveredelements="38" complexity="0" loc="41" ncloc="41" packages="1" files="5" classes="5"/>
+    <file name="absolute.js" path="C:\Users\Rocio Soledad\Desktop\LIM009-fe-md-links\LIM009-fe-md-links\src\process\absolute.js">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="2" type="stmt"/>
+    </file>
+    <file name="arrayOfMarkdowns.js" path="C:\Users\Rocio Soledad\Desktop\LIM009-fe-md-links\LIM009-fe-md-links\src\process\arrayOfMarkdowns.js">
+      <metrics statements="15" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
+      <line num="1" count="2" type="stmt"/>
+      <line num="2" count="2" type="stmt"/>
+      <line num="3" count="2" type="stmt"/>
+      <line num="8" count="2" type="stmt"/>
+      <line num="9" count="2" type="stmt"/>
+      <line num="11" count="2" type="stmt"/>
+      <line num="12" count="3" type="stmt"/>
+      <line num="13" count="2" type="stmt"/>
+      <line num="14" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="16" count="0" type="stmt"/>
+      <line num="17" count="0" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
+    </file>
+    <file name="convertToAbsolute.js" path="C:\Users\Rocio Soledad\Desktop\LIM009-fe-md-links\LIM009-fe-md-links\src\process\convertToAbsolute.js">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="2" count="3" type="stmt"/>
+      <line num="3" count="3" type="stmt"/>
+      <line num="4" count="6" type="stmt"/>
+    </file>
+    <file name="extractLinksOfMarkdowns.js" path="C:\Users\Rocio Soledad\Desktop\LIM009-fe-md-links\LIM009-fe-md-links\src\process\extractLinksOfMarkdowns.js">
+      <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <line num="5" count="3" type="stmt"/>
+      <line num="7" count="3" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="11" count="0" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+    </file>
+    <file name="validate.js" path="C:\Users\Rocio Soledad\Desktop\LIM009-fe-md-links\LIM009-fe-md-links\src\process\validate.js">
+      <metrics statements="12" coveredstatements="5" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="1"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="0" type="stmt"/>
+      <line num="10" count="0" type="stmt"/>
+      <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="12" count="0" type="stmt"/>
+      <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="14" count="0" type="stmt"/>
+      <line num="19" count="0" type="stmt"/>
+    </file>
+  </project>
+</coverage>

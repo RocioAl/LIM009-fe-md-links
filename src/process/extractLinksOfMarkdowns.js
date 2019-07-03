@@ -1,41 +1,16 @@
+// let ruta= 'C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links';
+// let ruta='https://github.com/markedjs/marked/issues/1279';
+// let ruta= 'C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md';
 
-// paso 1
-const fs = require("fs");
-const myMarked = require('marked');
-// const myMarked = require('marked'); // ruta absoluta
-// const path = require('path');
+const marked = require('marked');
 
-// console.log(path.resolve('C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md'))  
-
-// comprobar si es absoluta
-
-// const path = require('path');
-// let link= 'C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md';
-
-// console.log(path.resolve(link)+ "si es absoluta") ;
-
-    
-
-
-
-// let link= 'C:\Users\Rocio Soledad\Desktop\LIM009-fe-md-links\LIM009-fe-md-links\Readme.md';
-module.exports.linksmd=( file) => {
-
-  let links = [];
-  const markdown = fs.readFileSync(file,'utf8');
-
-  let renderer = new myMarked.Renderer();
- 
-  renderer.link = (href, title, text) => {
-      links.push({ href:href, text:text,  file:file})
-  };
-  myMarked(markdown, { renderer: renderer })
-
-  return links;
-//    console.log(links) ;
-}
-// console.log(linksmd(link));
-
-
-
-
+module.exports.linksmd = (markdown) =>{
+    let links = [];
+    let renderer = new marked.Renderer();
+    renderer.link =  (href, title, text)=> {
+        links.push({ text : text,  href : href, }); };
+   
+    marked(markdown, {renderer: renderer});
+    return links;   
+  }; 
+// console.log(linksmd(ruta));
