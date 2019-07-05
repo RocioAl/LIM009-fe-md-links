@@ -4,7 +4,7 @@ const so=require('./arrayOfMarkdowns')
 const file = process.argv[2];
 module.exports.resultWithOption = () =>{
   let result = so.arrayMarckdowns(file);
-  result.map(function (link) {
+  result.map((link)=> {
            console.log(`- ${chalk.bold(link.text)} : ${chalk.green(link.href)}`);
       });  
     }    
