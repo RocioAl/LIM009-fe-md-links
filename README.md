@@ -42,7 +42,7 @@ Resultado:
 cantidad de links, rotos y buenos
 
 
-![](./imagen/laboratoria.gif)
+![Alt Text](./imagen/laboratoria.gif)
 
 #### Implemetación de la librería
 
