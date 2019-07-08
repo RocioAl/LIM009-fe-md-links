@@ -42,8 +42,9 @@ Resultado:
 cantidad de links, rotos y buenos
 
 
+![mdlinks](https://user-images.githubusercontent.com/47761211/60787605-f64fe500-a11f-11e9-8f9c-5d2d4c18a284.gif)
 
-![](./imagen/laboratoria.gif)
+
 
 #### Implemetación de la librería
 
