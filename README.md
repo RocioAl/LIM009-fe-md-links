@@ -6,7 +6,7 @@ Es una Herramienta que lee y analiza archivos en formato Markdown usando Node.js
 En el caso de que desees clonar este repositorio, simplemente deberás escribir en tu consola :
 $ npm install
 En el caso de querer instalarlo en tu proyecto deberás escribir la siguiente línea de comando :
-npm install 
+$ npm install save https://github.com/RocioAl/LIM009-fe-md-links
  ``` 
 Esto hará que se instalen las dependencias, para que el módulo funcione correctamente.
 ## Uso en la línea de comandos
@@ -28,15 +28,19 @@ $ md-links ./some/example.md
 ./some/example.md http://google.com/ Google
 
 
-* $ lib/process/cli.js ./some/example.md
+* $ md-links ./some/example.md
 Resultado:
 el nombre del link, y la URL de este link.
 
-* $ lib/process/cli.js./some/example.md --validate
+* $ md-links./some/example.md --validate
 Resultado:
 Lo anterior incluyendo el status de los links
 
-* $ lib/process/cli.js ./some/example.md --stats
+* $ md-links ./some/example.md --stats
+Resultado:
+cantidad de links, rotos y buenos
+
+* $ md-links ./some/example.md --validate --stats ó --v --s
 Resultado:
 cantidad de links, rotos y buenos
 ```

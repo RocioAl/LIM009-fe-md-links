@@ -1,17 +1,17 @@
 
 const ew=require('../process/validate');
 const chalk = require('chalk'); 
-const pathAbsMD  = [
-  { href: 'https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e',
-    text: 'Linea de comando CLI',
-    file: `${process.cwd()}C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md`},
-  { href: 'https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback',
-    text: 'Leer un archivo',
-    file: `${process.cwd()}C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md`},
-  { href: 'https://javascript.info/promise-basics',
-    text: 'Promise ',
-    file: `${process.cwd()}C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md`}
-];
+// const pathAbsMD  = [
+//   { href: 'https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e',
+//     text: 'Linea de comando CLI',
+//     file: `${process.cwd()}C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md`},
+//   { href: 'https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback',
+//     text: 'Leer un archivo',
+//     file: `${process.cwd()}C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md`},
+//   { href: 'https://javascript.info/promise-basics',
+//     text: 'Promise ',
+//     file: `${process.cwd()}C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md`}
+// ];
 
 module.exports.StastLink= (arrLinks) => {
   const validate = ew.validateLink(arrLinks);

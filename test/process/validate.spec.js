@@ -19,7 +19,7 @@
     text: 'http://algo.com/2/3/',
     file: `${process.cwd()}C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md`,
     status: 404,
-    value: ' // X' } ];
+    value: '// X' } ];
   
   describe('validateLink', () => {
     it('debería ser igual a una función', () => {

@@ -1,4 +1,4 @@
-import {StastLink,BrokenLinks, pathAbsMD} from '../../src/process/stats.js';
+import {StastLink,BrokenLinks} from '../../src/process/stats.js';
 const pathAbsMD  = [
   { href: 'https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e',
     text: 'Linea de comando CLI',

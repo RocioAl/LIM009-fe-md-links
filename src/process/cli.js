@@ -1,4 +1,4 @@
-#! / usr / bin / env nodo
+#!/usr/bin/env node
 
 const ty = require('../search-files/main');
 const bg = require('../process/stats');
