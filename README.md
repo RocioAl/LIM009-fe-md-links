@@ -1,34 +1,30 @@
 # Markdown Links
+Es una Herramienta que lee y analiza archivos en formato Markdown usando Node.js, para verificar los links que contengan, que muchas veces están rotos o ya no son válidos y eso perjudica mucho el valor de la información que se quiere compartir.
 
 # Instalación
 En el caso de que desees clonar este repositorio, simplemente deberás escribir en tu consola :
 $ npm install
 
 En el caso de querer instalarlo en tu proyecto deberás escribir la siguiente línea de comando :
-npm install --save https://github.com/RocioAl/LIM009-fe-md-links 
+npm install 
 
-Esto hará que se instalen las dependencias, para que el módulo funcione correctamente. Este módulo tiene una función principal llamada mdlinks, que tiene dos parametros :
-
-`path`: Ruta absoluta o relativa al archivo o directorio
-`options`: Un objeto con las siguientes propiedades:(validate, stats)
-
-`--validate o --v`
-
-Si pasamos la opción --validate o --v, el módulo debe hacer una petición HTTP para averiguar si el link funciona o no. Si el link resulta en una redirección a una URL que responde OK, entonces consideraremos el link como OK.
-El output en este caso incluye la palabra OK o NOT FOUND después de la URL, así como también devolverá la validacion o status de los links (status: 200, 404) de la respuesta recibida a la petición HTTP a dicha URL.
-
-
-`--stats o --s`
-
-Si pasamos la opción --stats o --s el output (salida) devolverá la cantidad de links que se encuentran en buen estado y cuantos están rotos, además del total de links encontrados en el archivo.md(string con estadísticas básicas sobre los links)
-
+Esto hará que se instalen las dependencias, para que el módulo funcione correctamente.
 ## Uso en la línea de comandos
 
-Podrá ejecutarse de la siguiente manera a través de la terminal:
+Este módulo tiene una función principal llamada mdlinks, que tiene dos parametros :
+md-links <path-to-file> [options]
+`path`: Ruta absoluta o relativa al archivo o directorio
+`options`: Un objeto con las siguientes propiedades:(validate, stats)
+  
+  Podrá ejecutarse de la siguiente manera a través de la terminal:
+ 
+ Por ejemplo:
 
-node lib/process/cli.js <path-to-file> [options]
+$ md-links ./example/example.md
+./example/example.md http://algo.com/2/3/  Link a algo
+./example/example.md https://otra-cosa.net/algun-doc.html  algún doc
+./example/example.md http://google.com/  Google
 
-Por ejemplo:
 * $ lib/process/cli.js ./some/example.md
 Resultado:
 el nombre del link, y la URL de este link.
@@ -40,6 +36,16 @@ Lo anterior incluyendo el status de los links
 * $ lib/process/cli.js ./some/example.md --stats
 Resultado:
 cantidad de links, rotos y buenos
+`--validate o --v`
+
+Si pasamos la opción --validate o --v, el módulo debe hacer una petición HTTP para averiguar si el link funciona o no. Si el link resulta en una redirección a una URL que responde OK, entonces consideraremos el link como // ✓'.
+El output en este caso incluye la palabra // ✓' , // X  o CERTIFICADO EXPIRADO después de la URL, así como también devolverá la validacion o status de los links (status: 200, 404) de la respuesta recibida a la petición HTTP a dicha URL.
+
+
+`--stats o --s`
+
+Si pasamos la opción --stats o --s el output (salida) devolverá la cantidad de links que se encuentran en buen estado y cuantos están rotos, además del total de links encontrados en el archivo.md(string con estadísticas básicas sobre los links)
+
 
 
 ![mdlinks](https://user-images.githubusercontent.com/47761211/60787605-f64fe500-a11f-11e9-8f9c-5d2d4c18a284.gif)
