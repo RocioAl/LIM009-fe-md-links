@@ -2,12 +2,12 @@
 Es una Herramienta que lee y analiza archivos en formato Markdown usando Node.js, para verificar los links que contengan, que muchas veces están rotos o ya no son válidos y eso perjudica mucho el valor de la información que se quiere compartir.
 
 # Instalación
--En el caso de que desees clonar este repositorio, simplemente deberás escribir en tu consola :
+```hs
+En el caso de que desees clonar este repositorio, simplemente deberás escribir en tu consola :
 $ npm install
-
--En el caso de querer instalarlo en tu proyecto deberás escribir la siguiente línea de comando :
+En el caso de querer instalarlo en tu proyecto deberás escribir la siguiente línea de comando :
 npm install 
-
+ ``` 
 Esto hará que se instalen las dependencias, para que el módulo funcione correctamente.
 ## Uso en la línea de comandos
 
