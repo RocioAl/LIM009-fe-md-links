@@ -1,18 +1,20 @@
 'use strict';
 const ew=require('../process/validate');
-const ef=require('../process/stats');
-const er=require('../process/result');
+const xy=require('../process/arrayOfMarkdowns');
+// let ruta= 'C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md';
 
-module.exports. mdlinks = (file, option) => {
-  return new Promise((res, rej) =>{
-    if(option === undefined){
-      res(er.resultWithOption(file));         
-    }else if(option === '--validate' || option === '--v'){
-      res(ew.validateLinks(file));
-    }else if(option === '--stats' || option === '--s'){
-      res(ef.statsLinks (file));
-    }else{
-        rej('\n La opción que ingresaste no es válida. \n - Prueba con --v / --validate \n - Prueba con --s / -- stats \n');
-      }
-});         
+module.exports. mdLinks = (path, options) => {
+      return new Promise((res,rej)=>{
+        if(options.validate){
+            res (ew.validateLink(xy.arrayMarckdowns (path)));
+        }
+        else{
+            res (xy.arrayMarckdowns (path));
+        }
+      })
 }
+
+//  console.log(mdLinks (ruta, false));
+ 
+
+

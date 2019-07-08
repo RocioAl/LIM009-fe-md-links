@@ -1,46 +1,43 @@
-// let ruta= 'C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links';
-// let ruta= 'C:\\Users\\Rocio Soledad\\Desktop\\LIM0-09-fe-md-links\\LIM009-fe-md-links\\Readme.md';
 
+const ew=require('../process/validate');
 const chalk = require('chalk'); 
-const fetch = require('node-fetch');
-const jk=require('../process/arrayOfMarkdowns');
-import "@babel/polyfill";
+const pathAbsMD  = [
+  { href: 'https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e',
+    text: 'Linea de comando CLI',
+    file: `${process.cwd()}C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md`},
+  { href: 'https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback',
+    text: 'Leer un archivo',
+    file: `${process.cwd()}C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md`},
+  { href: 'https://javascript.info/promise-basics',
+    text: 'Promise ',
+    file: `${process.cwd()}C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md`}
+];
 
-   module.exports.statsLinks = async (file) =>{
-      let statsArrayMarckdowns = jk.arrayMarckdowns(file);
-      let arrayStats = [];
-      let unique = 0;
-      let broken = 0;
-      await Promise.all(statsArrayMarckdowns.map(async(element )=> {
-        await fetch(element.href).then(res=>{
-          arrayStats.push(element);
-          if(res.ok === true){
-            unique++;
-          }else if(res.code === 'ENOTFOUND'){
-            broken++
-          } else{
-            broken++; } 
-        }).catch(err =>{
-          broken++;
-        });
-      }));
-      console.log(`- Unique : ${chalk.green(unique)}`);
-      console.log(`- Broken: ${chalk.red(broken)}`);
-      console.log(`- Total : ${chalk.yellow(unique + broken)}`);
-    }
-
-    // console.log(statsLinks());
-
-
-
-
-
-
+module.exports.StastLink= (arrLinks) => {
+  const validate = ew.validateLink(arrLinks);
+  return new Promise((res) => {
+    validate.then((links) => {
+      const total = links.length;
+      const uniqueLinks = [...new Set(links.map(links => links.href))].length;
+      res(`- Total  : ${chalk.yellow(total)} - Unique : ${chalk.green(uniqueLinks)}`);
+   });
+ });
+};
+module.exports.BrokenLinks = (arrLinks) => {
+  const validate = ew.validateLink(arrLinks);
+  return new Promise((res) => {
+    validate.then((link) => {
+      const filterBroken = link.filter(links => links.value === 'CERTIFICADO EXPIRADO');
+      // res(`Broken: ${filterBroken.length}`)
+      res(`- Broken: ${chalk.red.bold( `${filterBroken.length}`)}`)
+    });
+  });
+};
 
 
 
-
-
+// StastLink(pathAbsMD).then((result) => console.log(result));
+// BrokenLinks(pathAbsMD).then((result) => console.log(result));
 
 
 
@@ -55,4 +52,9 @@ import "@babel/polyfill";
 
 
 
-// https://www.youtube.com/watch?v=Vpb4v4G4N-c&list=PLL1UEcDHVPjkGjqM4mvAb2z9meV7jWmbd&index=9
+
+
+
+
+
+

@@ -1,13 +1,11 @@
 const fs = require("fs");
 const chalk = require('chalk'); 
 const path = require('path');
-
+const ac=require('../process/convertToAbsolute');
+const de=require('../process/extractLinksOfMarkdowns');
 // let ruta= 'C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links';
 // let ruta='https://github.com/markedjs/marked/issues/1279';
 // let ruta= 'C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md';
-const ac=require('../process/convertToAbsolute');
-const de=require('../process/extractLinksOfMarkdowns');
-
 module.exports.arrayMarckdowns= (file) =>{
 let isAbsolute =ac.processConvertToAbsolute(file);
     let extension = path.extname(isAbsolute);
@@ -22,6 +20,6 @@ let isAbsolute =ac.processConvertToAbsolute(file);
         }
       }
 // console.log(arrayMarckdowns(ruta));
-// https://www.npmjs.com/package/chalk
+
 
 

@@ -1,64 +1,46 @@
+ import {validateLink} from '../../src/process/validate.js';
 
-
-import {validateLinks} from '../../src/process/validate.js';
-
-import fetchMock from '../../node_modules/fetch-mock';
-
-
-
-fetchMock.config.sendAsJson = false;
-
-describe('validateLinks', () => {
-  fetchMock
-    .mock('https://es.wikipedia.org/wiki/Markdown', 200)
-    .mock('http://algo.com/2/3/', 404)
-    // .mock('//otra-cosa.net/algun-doc.html ','CERTIFICADO EXPIRADO' )
-   
-  it('deberia validar test', () => {
-    const ouput = [ 
-
-      {   href: 'https://es.wikipedia.org/wiki/Markdown',
-      status: 200,
-          statusText: 'OK'
-      
-       },
-      { href:'http://algo.com/2/3/',
-      status: 404,
-      statusText: 'NOT FOUND'
-      
-        },
-      // { href:'//otra-cosa.net/algun-doc.html ',
-      
-      //  },
-      
-       ];
-    
- 
-    
-    validateLinks(ouput)
-
-      .then(response => {
-        expect(response).toEqual([{
-          href: 'https://es.wikipedia.org/wiki/Markdown',
-          status: 200,
-          statusText: 'OK'
-        },
-        {
-          href: 'http://algo.com/2/3/',
-          status: 404,
-          statusText: 'NOT FOUND'
-        },
-     
-      
-      ]);
-   
-      })
-     
-  })
-
-})
-
-
-
-
-
+  // import fetchMock from '../../node_modules/fetch-mock';
+  const input = [{ href: 'https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e',
+    text: 'Linea de comando CLI',
+    file:`${process.cwd()}C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md`}];
+  
+  const ouput = [ { href: 'https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e',
+    text: 'Linea de comando CLI',
+    file:`${process.cwd()}C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md`,
+    status: 200,
+    value: '// ✓' } ];
+  
+  const input1 = [{ href: 'http://algo.com/2/3/',
+    text: 'http://algo.com/2/3/',
+    file: `${process.cwd()}C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md` }];
+  
+  const ouput1 = [ { href: 'http://algo.com/2/3/',
+    text: 'http://algo.com/2/3/',
+    file: `${process.cwd()}C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md`,
+    status: 404,
+    value: ' // X' } ];
+  
+  describe('validateLink', () => {
+    it('debería ser igual a una función', () => {
+      expect(typeof validateLink).toBe('function');
+    });
+  });
+  
+  test('Debería retornar el objeto ingresado adicionando las propiedades status 200 y value OK', (done) => {
+    validateLink(input).then((result) => {
+      expect(result).toEqual(ouput);
+      done();
+    });
+  });
+  
+  test('Debería retornar el objeto ingresado adicionando las propiedades status 400 y value Fail', (done) => {
+    validateLink(input1).then((result) => {
+      expect(result).toEqual(ouput1);
+      done();
+    });
+  });
+  
+  
+  
+  

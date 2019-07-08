@@ -1,25 +1,38 @@
-// let ruta= 'C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links';
-//  let ruta= 'C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md';
-const chalk = require('chalk'); 
+
 const fetch = require('node-fetch');
-const ef=require('../process/arrayOfMarkdowns');
-    
-module.exports.validateLinks = (file) =>{ 
-    let validate = ef.arrayMarckdowns(file);
-    validate.forEach(element => {
-      fetch(element.href).then(response =>{
-        if(response.ok === true){      
-          console.log((` - ${element.href} `), chalk.green.bold(`// ✓ ${response.status} ${response.statusText}`));
-        }else if(response.ok === false){
-          console.log((`- ${element.href} `), chalk.red.bold(`// X ${response.status} ${response.statusText}`));
-        } else{
-          
-        }
-      }).catch(err =>{
-        console.log((` - ${element.href} `), chalk.magenta.bold(`// CERTIFICADO EXPIRADO`));
-      });
-    });
-   
-    }
-// responde-ok returns true if the response returned successfully
-// console.log(validateLinks(ruta));
+
+module.exports. validateLink = (arrObjec) => {
+  const resulArray = arrObjec.map(links => 
+    new Promise((resolve, reject) => {
+     return fetch(links.href)
+        .then(stat => {
+          if (stat.status >= 200 && stat.status < 400) {
+            links.status = stat.status; 
+            links.value = '// ✓';
+            resolve(links);
+          } else {
+            links.status = stat.status; 
+            links.value = '// X ';
+            resolve(links);
+          }
+        }).catch(error => {
+          links.status = '';
+          links.value = 'CERTIFICADO EXPIRADO';
+          resolve(links);
+        });
+    }));
+  return Promise.all(resulArray);
+};
+// validateLink([
+//   { href: 'https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e',
+//   text: 'Linea de comando CLI',
+//   file: `${process.cwd()}C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md`},
+// { href: 'https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback',
+//   text: 'Leer un archivo',
+//   file: `${process.cwd()}C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md`},
+// { href: 'https://javascript.info/promise-basics',
+//   text: 'Promise ',
+//   file: `${process.cwd()}C:\\Users\\Rocio Soledad\\Desktop\\LIM009-fe-md-links\\LIM009-fe-md-links\\Readme.md`}
+// ]).then((result) => console.log(result));
+
+  
