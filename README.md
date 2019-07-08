@@ -1,7 +1,7 @@
 # Markdown Links
 Es una Herramienta que lee y analiza archivos en formato Markdown usando Node.js, para verificar los links que contengan, que muchas veces están rotos o ya no son válidos y eso perjudica mucho el valor de la información que se quiere compartir.
 
-# Instalación
+##  Instalación
 ```hs
 En el caso de que desees clonar este repositorio, simplemente deberás escribir en tu consola :
 $ npm install
